@@ -29,8 +29,8 @@ Este proyecto es una API REST de gestión de tareas, implementada utilizando la 
 ### Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/task-manager-backend.git
-cd task-manager-backend
+git clone https://github.com/mariod90/kata-10-24-backend.git
+cd kata-10-24-backend
 ```
 
 ### Instalar dependencias
