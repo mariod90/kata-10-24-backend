@@ -3,7 +3,6 @@ import {SQLiteTaskRepository} from "../../../src/infrastructure/persistence/SQLi
 import {connectToDatabase} from "../../../src/config/db";
 import {Task} from "../../../src/domain/Task";
 
-
 jest.mock('../../../src/config/db');
 
 describe('SQLiteTaskRepository', () => {

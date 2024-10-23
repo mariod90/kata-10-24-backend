@@ -3,6 +3,7 @@ import {ITaskRepository} from "../../domain/repositories/ITaskRepository";
 import {CustomError} from "../../shared/errors/CustomError";
 
 const ERROR_NOT_FOUND = new CustomError('Task not found', 404);
+
 export class TaskService {
     private taskRepository: ITaskRepository;
 
@@ -22,7 +23,6 @@ export class TaskService {
     async updateTask(id: number, updatedTask: Task): Promise<Task> {
         const existingTask = await this.taskRepository.findById(id);
         if (!existingTask) {
-            //return Promise.reject({status: 404, message: 'Task not found'})
             throw ERROR_NOT_FOUND;
         }
 
@@ -33,7 +33,6 @@ export class TaskService {
     async deleteTask(id: number): Promise<void> {
         const task = await this.taskRepository.findById(id);
         if (!task) {
-            //return Promise.reject({status: 404, message: 'Task not found'})
             throw ERROR_NOT_FOUND;
         }
         await this.taskRepository.delete(id);
