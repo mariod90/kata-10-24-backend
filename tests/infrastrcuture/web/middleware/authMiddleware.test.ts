@@ -30,25 +30,25 @@ describe('authMiddleware', () => {
         expect(res.status).not.toHaveBeenCalled(); // No debe haber llamado a res.status()
     });
 
-    it('should return 403 if the token is missing', () => {
+    it('should return 401 if the token is missing', () => {
         const req = mockRequest({});
         const res = mockResponse();
 
         authMiddleware(req, res, mockNext);
 
-        expect(res.status).toHaveBeenCalledWith(403); // Debe devolver 403 Forbidden
-        expect(res.json).toHaveBeenCalledWith({ message: 'Forbidden: Invalid token' }); // Mensaje correcto
+        expect(res.status).toHaveBeenCalledWith(401); // Debe devolver 401 Unauthorized
+        expect(res.json).toHaveBeenCalledWith({ message: 'Unauthorized: Invalid token' });
         expect(mockNext).not.toHaveBeenCalled(); // No debe llamar a next()
     });
 
-    it('should return 403 if the token is invalid', () => {
+    it('should return 401 if the token is invalid', () => {
         const req = mockRequest({ authorization: 'invalidtoken' });
         const res = mockResponse();
 
         authMiddleware(req, res, mockNext);
 
-        expect(res.status).toHaveBeenCalledWith(403); // Debe devolver 403 Forbidden
-        expect(res.json).toHaveBeenCalledWith({ message: 'Forbidden: Invalid token' }); // Mensaje correcto
+        expect(res.status).toHaveBeenCalledWith(401); // Debe devolver 401 Unauthorized
+        expect(res.json).toHaveBeenCalledWith({ message: 'Unauthorized: Invalid token' });
         expect(mockNext).not.toHaveBeenCalled(); // No debe llamar a next()
     });
 });
