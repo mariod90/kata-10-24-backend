@@ -13,7 +13,6 @@ export class Task {
 
     validate(): void {
         if (!this.title || !this.description) {
-            //return Promise.reject({status: 400, message: 'Both title and description are required'})
             throw new CustomError('Both title and description are required', 400);
         }
     }
