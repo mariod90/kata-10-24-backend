@@ -44,11 +44,11 @@ Para iniciar el servidor localmente, ejecuta:
 npm run dev
 ```
 
-El servidor estará corriendo en http://localhost:3000.
+El servidor estará corriendo en http://localhost:3001.
 
 ## Probar la API
 Asegúrate de que el servidor esté corriendo.
-Abre Postman o tu herramienta de prueba de APIs favorita, y crea un entorno con la URL base http://localhost:3000.
+Abre Postman o tu herramienta de prueba de APIs favorita, y crea un entorno con la URL base http://localhost:3001.
 Añade una cabecera Authorization con el valor **"mysecrettoken"** en las solicitudes.
 
 ### Endpoints principales:
